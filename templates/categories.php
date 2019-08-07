@@ -18,7 +18,7 @@
                     foreach ($articles_cat as $cat)
                     {
 
-                        echo '<a href="">
+                        echo '<a href="categorie&cat=' . $cat['id'] . '">
                                 <li class="list-group-item d-flex justify-content-between align-items-center">'
                                     . $cat['name'] .
                                     '<span class="badge badge-primary badge-pill">'

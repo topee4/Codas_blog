@@ -1,4 +1,5 @@
 <?php
+$route = $_GET['route'];
 
 //LINK
 include 'templates/link.php';
@@ -13,7 +14,19 @@ include 'templates/header.php';
 
 
 //CONTENT
-include 'pages/main.php';
+switch ($route){
+    case '':
+        include 'pages/main.php';
+        break;
+    case 'article':
+        include 'pages/article.php';
+        break;
+    case 'categorie':
+        include "pages/categorie-articles.php";
+        break;
+    default:
+        include "pages/404.php";
+}
 
 
 

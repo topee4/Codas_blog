@@ -12,39 +12,27 @@
     </div>
 
     <!--ARTICLE CONTENT-->
-    <div class="card-group">
-        <div class="card-deck">
-            <div class="card">
-                <img src="assets/images/db.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
-                </div>
-            </div>
-            <div class="card">
-                <img src="assets/images/db.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
-                </div>
-            </div>
-            <div class="card">
-                <img src="assets/images/db.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
-                </div>
-            </div>
-        </div>
+
+    <div class="row">
+        <?php
+        $cat_id = $_GET['cat'];
+        $articles = $db->fetchAll("SELECT * FROM articles WHERE articles.categorie_id = $cat_id");
+        foreach ($articles as $article)
+        {
+
+            echo '<div class="col-4">
+                    <div class="card">
+                        <a href="article&id=' . $article['id'] . '"><img src="assets/images/' . $article['img'] . '" class="card-img-top" alt="..."></a>
+                        <div class="card-body">
+                          <a href="article&id=' . $article['id'] . '"><h5 class="card-title">' . $article['title'] . '</h5></a>
+                          <p class="card-text">' . $article['description'] . '</p>
+                          <p class="card-text"><small class="text-muted">' . $article['date'] . '</small></p>
+                        </div>
+                    </div>
+                </div>';
+                }
+        ?>
+
     </div>
 
 </div>
