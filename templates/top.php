@@ -1,31 +1,26 @@
 <!--TOP ARTICLES-->
 <div class="col-sm-2">
 
-    <h1>ТОП читаемых:</h1>
+    <?php
+    //$top_count задает кол-во вывода ТОП статей по просмотрам
+    $top_art_count = 3;
+    ?>
+    <h2>ТОП <?php echo $top_art_count;?> читаемых:</h2>
 
-    <div class="card">
-        <img src="assets/images/ajax.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">Card title that wraps to a new line</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        </div>
-    </div>
+    <?php
 
-    <div class="card">
-        <img src="assets/images/ajax.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">Card title that wraps to a new line</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        </div>
-    </div>
-
-    <div class="card">
-        <img src="assets/images/ajax.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">Card title that wraps to a new line</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        </div>
-    </div>
+    $top_art = $db->fetchAll("SELECT * FROM articles ORDER BY views DESC LIMIT $top_art_count");
+    foreach ($top_art as $art)
+    {
+        echo '<div class="card">
+                <a href="article&id=' . $art['id'] . '"><img src="assets/images/' . $art['img'] . '" class="card-img-top" alt="..."></a>
+                <div class="card-body">
+                    <a href="article&id=' . $art['id'] . '"><h5 class="card-title">' . $art['title'] . '</h5></a>
+                    <p class="card-text">' . htmlspecialchars(mb_strimwidth($art['description'], 0, 95, '...'), ENT_COMPAT | ENT_HTML401) . '</p>
+                </div>
+              </div>';
+    }
+    ?>
 
 </div>
 

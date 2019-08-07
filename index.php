@@ -16,6 +16,7 @@ include 'templates/header.php';
 //CONTENT
 switch ($route){
     case '':
+    case 'main':
         include 'pages/main.php';
         break;
     case 'article':
