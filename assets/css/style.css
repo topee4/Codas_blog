@@ -1,0 +1,27 @@
+/*CATEGORIES-NAV*/
+.css_categories{
+    max-width: 250px;
+}
+
+/*FOOTER*/
+html, body{
+    height: 100%;
+}
+body{
+    display: flex;
+    flex-direction: column;
+}
+.css_axis {
+    flex-grow: 1;
+}
+
+/*ARTICLE*/
+.css_article{
+    min-height: 350px;
+}
+
+/*TOP ARTICLES*/
+.css_shadow{
+    color: black;
+    text-shadow: 1px 1px 0px white;
+}
