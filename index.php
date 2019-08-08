@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 $route = $_GET['route'];
 
 //LINK
@@ -25,6 +27,18 @@ switch ($route){
     case 'categorie':
         include "pages/categorie-articles.php";
         break;
+//        Регистрация
+    case 'registration':
+        include "pages/registration.php";
+        break;
+//        Авторизация
+    case 'login':
+        include "pages/login.php";
+        break;
+    case 'intropage':
+        include "pages/intropage.php";
+        break;
+
     default:
         include "pages/404.php";
 }

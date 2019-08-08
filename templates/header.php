@@ -19,6 +19,26 @@
                     <a class="nav-link disabled" href="https://github.com/topee4">Обо мне</a>
                 </li>
             </ul>
+<!--Вход / Регситрация-->
+            <?php
+            if ( isset($_SESSION['user']) ){
+                echo '<div>Привет ' . '<b>' . $_SESSION['user']['login'] . '</b>!</div>';
+                echo '<form action="pages/logout.php" method="POST">
+                            <button type="submit" name="logout" class="btn btn-primary m-1">Выйти</button>
+                        </form>';
+            } else {
+                ?>
+                <a href="login">
+                    <button type="button" class="btn btn-primary m-1">Войти</button>
+                </a>
+                <span> / </span>
+                <a href="registration">
+                    <button type="button" class="btn btn-primary m-1">Регистрация</button>
+                </a>
+                <?php
+            }
+            ?>
+<!--            Поиск           -->
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Что искать?" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Поиск</button>

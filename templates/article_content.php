@@ -45,4 +45,49 @@
         </div>
     </div>
 
+    <div class="card mt-4">
+        <div class="card-header">
+<!--    COMMENTS    -->
+            <h4 id="comments">Комментарии:</h4>
+        </div>
+        <?php
+        $comments = $db->fetchAll("SELECT * FROM comments WHERE article_id = '$art_id'");
+
+        if($comments){
+            foreach ($comments as $data)
+            {
+                echo '<div class="card-body">
+                    <h5 class="card-title">' . $data['author'] . '</h5>
+                    <p class="card-text">' . $data['text'] . '</p>
+                    <p class="card-text"><small class="text-muted">' . $data['date'] . '</small></p>
+                 </div>
+                 <hr>';
+            }
+        } else {
+            echo '<div class="card-body">
+                    <i><h5 class="card-title">Комментариев нет.</h5></i>
+                    <p class="card-text"><small class="text-muted"></small></p>
+                 </div>';
+        }
+        ?>
+
+    </div>
+
+<!--    ADD COMMENTS -->
+    <form action="core/core.php" class="mt-4" method="POST">
+        <div class="card mt-4">
+            <div class="card-header">
+                <h4>Добавить комментарий:</h4>
+                <div>Ползователь: <b><?php echo $_SESSION['user']['login'];?></b></div>
+            </div>
+            <div class="card-title">
+                <div class="form-group">
+                    <textarea class="form-control" name="comment" rows="3" placeholder="Введите сообщение"></textarea>
+                    <input type="hidden" name="art_id" value="<?php echo $art_id;?>">
+                </div>
+                <button class="btn btn-primary" name="comment_add" type="submit">Добавить</button>
+            </div>
+        </div>
+    </form>
+
 </div>

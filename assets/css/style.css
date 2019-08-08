@@ -25,3 +25,7 @@ body{
     color: black;
     text-shadow: 1px 1px 0px white;
 }
+/*LOGIN REGISTRATION FORMS*/
+.css_forms{
+    max-width: 310px;
+}
