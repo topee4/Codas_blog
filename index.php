@@ -38,6 +38,10 @@ switch ($route){
     case 'intropage':
         include "pages/intropage.php";
         break;
+//        Поиск
+    case 'search':
+        include "pages/search.php";
+        break;
 
     default:
         include "pages/404.php";

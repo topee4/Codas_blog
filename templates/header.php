@@ -39,9 +39,9 @@
             }
             ?>
 <!--            Поиск           -->
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Что искать?" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Поиск</button>
+            <form class="form-inline my-2 my-lg-0" method="POST" action="search">
+                <input class="form-control mr-sm-2" type="search" name="search_query" placeholder="Что искать?" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="search">Поиск</button>
             </form>
         </div>
 

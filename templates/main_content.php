@@ -17,7 +17,7 @@
     $arts = $db->fetchALL("SELECT articles_categorie_id.name, articles.*
                                 FROM articles INNER JOIN  articles_categorie_id
                                  ON articles.categorie_id = articles_categorie_id.id
-                                  GROUP BY date DESC LIMIT $start_page, $offset");
+                                  ORDER BY date DESC LIMIT $start_page, $offset");
     foreach ($arts as $art)
     {
      ?>
